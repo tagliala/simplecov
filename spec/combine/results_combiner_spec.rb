@@ -49,42 +49,42 @@ describe SimpleCov::Combine::ResultsCombiner do
       end
 
       it "has proper results for sample.rb" do
-        expect(subject[source_fixture("sample.rb")][:lines]).to eq([1, 1, 2, 2, nil, nil, 2, 2, nil, nil])
-        expect(subject[source_fixture("sample.rb")][:branches][[:if, 3, 8, 6, 8, 36]][[:then, 4, 8, 6, 8, 12]]).to eq(47)
+        expect(subject[source_fixture("sample.rb")]["lines"]).to eq([1, 1, 2, 2, nil, nil, 2, 2, nil, nil])
+        expect(subject[source_fixture("sample.rb")]["branches"][[:if, 3, 8, 6, 8, 36]][[:then, 4, 8, 6, 8, 12]]).to eq(47)
       end
 
       it "has proper results for user.rb" do
-        expect(subject[source_fixture("app/models/user.rb")][:lines]).to eq([nil, 2, 6, 2, nil, nil, 2, 0, nil, nil])
-        expect(subject[source_fixture("app/models/user.rb")][:branches][[:if, 3, 8, 6, 8, 36]][[:then, 4, 8, 6, 8, 12]]).to eq(48)
-        expect(subject[source_fixture("app/models/user.rb")][:branches][[:if, 3, 8, 6, 8, 36]][[:else, 5, 8, 6, 8, 36]]).to eq(26)
+        expect(subject[source_fixture("app/models/user.rb")]["lines"]).to eq([nil, 2, 6, 2, nil, nil, 2, 0, nil, nil])
+        expect(subject[source_fixture("app/models/user.rb")]["branches"][[:if, 3, 8, 6, 8, 36]][[:then, 4, 8, 6, 8, 12]]).to eq(48)
+        expect(subject[source_fixture("app/models/user.rb")]["branches"][[:if, 3, 8, 6, 8, 36]][[:else, 5, 8, 6, 8, 36]]).to eq(26)
       end
 
       it "has proper results for sample_controller.rb" do
-        expect(subject[source_fixture("app/controllers/sample_controller.rb")][:lines]).to eq([nil, 4, 2, 1, nil, nil, 2, 0, nil, nil])
+        expect(subject[source_fixture("app/controllers/sample_controller.rb")]["lines"]).to eq([nil, 4, 2, 1, nil, nil, 2, 0, nil, nil])
       end
 
       it "has proper results for resultset1.rb" do
-        expect(subject[source_fixture("resultset1.rb")][:lines]).to eq([1, 1, 1, 1])
+        expect(subject[source_fixture("resultset1.rb")]["lines"]).to eq([1, 1, 1, 1])
       end
 
       it "has proper results for resultset2.rb" do
-        expect(subject[source_fixture("resultset2.rb")][:lines]).to eq([nil, 1, 1, nil])
+        expect(subject[source_fixture("resultset2.rb")]["lines"]).to eq([nil, 1, 1, nil])
       end
 
       it "has proper results for parallel_tests.rb" do
-        expect(subject[source_fixture("parallel_tests.rb")][:lines]).to eq([nil, nil, nil, 0])
+        expect(subject[source_fixture("parallel_tests.rb")]["lines"]).to eq([nil, nil, nil, 0])
       end
 
       it "has proper results for conditionally_loaded_1.rb" do
-        expect(subject[source_fixture("conditionally_loaded_1.rb")][:lines]).to eq([nil, 0, 1])
+        expect(subject[source_fixture("conditionally_loaded_1.rb")]["lines"]).to eq([nil, 0, 1])
       end
 
       it "has proper results for conditionally_loaded_2.rb" do
-        expect(subject[source_fixture("conditionally_loaded_2.rb")][:lines]).to eq([nil, 0, 1])
+        expect(subject[source_fixture("conditionally_loaded_2.rb")]["lines"]).to eq([nil, 0, 1])
       end
 
       it "has proper results for three.rb" do
-        expect(subject[source_fixture("three.rb")][:lines]).to eq([nil, 3, 7])
+        expect(subject[source_fixture("three.rb")]["lines"]).to eq([nil, 3, 7])
       end
     end
   end
@@ -103,7 +103,7 @@ describe SimpleCov::Combine::ResultsCombiner do
     expect(merged_result.keys).to eq(resultset1.keys)
     expect(merged_result.values.map(&:frozen?)).to eq([false, false])
 
-    expect(merged_result[source_fixture("sample.rb")][:lines]).to eq([1, 1, 2, 2, nil, nil, 2, 2, nil, nil])
-    expect(merged_result[source_fixture("app/models/user.rb")][:lines]).to eq([nil, 1, 1, 1, nil, nil, 1, 0, nil, nil])
+    expect(merged_result[source_fixture("sample.rb")]["lines"]).to eq([1, 1, 2, 2, nil, nil, 2, 2, nil, nil])
+    expect(merged_result[source_fixture("app/models/user.rb")]["lines"]).to eq([nil, 1, 1, 1, nil, nil, 1, 0, nil, nil])
   end
 end
