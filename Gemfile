@@ -19,6 +19,7 @@ group :development do
   gem "pry"
   gem "rubocop"
   gem "test-unit"
+  gem "webrick"
 end
 
 group :benchmark do
